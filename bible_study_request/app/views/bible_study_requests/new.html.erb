@@ -1,0 +1,61 @@
+<h1>Estude a Bíblia pelo Skype ou Whatsapp</h1>
+
+<% if params[:requested] %>
+  <div class="alert alert-primary" role="alert">
+    Obrigado! Entrarei em contato em breve.
+  </div>
+<% else %>
+  <p>Um estudo bíblico para todos: Religiosos ou não. Basta curiosidade ou vontade de aprender.</p>
+
+  <p>Solicite o seu estudo bíblico e aprenda:</p>
+
+  <ul>
+    <li>O que acontece quando morremos?</li>
+    <li>Por que Deus permite o sofrimento?</li>
+    <li>Estamos vivendo um cumprimento de profecias?</li>
+    <li>O que esperar do futuro?</li>
+    <li>Será que os mortos podem voltar a viver?</li>
+    <li>Podemos mesmo acreditar na Bíblia?</li>
+    <li>Veja outros assuntos <a href="https://www.jw.org/pt/biblioteca/livros/estudo-da-biblia/">aqui</a></li>
+  </ul>
+
+  <% unless params[:requested] %>
+    <p><strong>Para solicitar um estudo, basta enviar o formulário.</strong></p>
+    <fieldset>
+      <%= simple_form_for(@visitor, url: new_bible_study_request_path) do |f| %>
+        <%= f.input :uuid, as: :hidden %>
+        <%= f.input :cid, as: :hidden %>
+        <%= f.input :name %>
+        <%= f.input :email %>
+        <%= f.input :phone, placeholder: 'Seu telefone ou número do Whatsapp' %>
+        <%= f.input :message, placeholder: "Dúvida? Deixe sua mensagem ou pergunta aqui." %>
+        <%= f.button :submit, value: 'Solicitar estudo ou Informações', class: 'btn-primary' %>
+      <% end %>
+    <% end %>
+    </fieldset>
+<% end %>
+
+<hr>
+
+<div class="row">
+  <div class="col-lg-12">
+    <p> Assista os vídeos: </p>
+
+    <ul>
+      <li><a target="_blank" href="https://bit.ly/39hkmwq">Por que estudar a Bíblia?</a></li>
+      <li><a target="_blank" href="https://bit.ly/39cLEDV">Como é um estudo bíblico </a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <p>Veja também:</p>
+
+    <ul>
+      <li><a target="_blank" href="https://bit.ly/39kug01">Perguntas Bíblicas respondidas</a></li>
+      <li><a target="_blank" href="http://bit.ly/2eomuKL">JW.ORG</a></li>
+    </ul>
+  </div>
+</div>
+
